@@ -29,7 +29,7 @@ body {
 }
 
 /* === BUTTONS === */
-.btn {
+.button {
   cursor: pointer;
   position: relative;
   display: inline-block;
@@ -45,7 +45,7 @@ body {
   font-weight: 600;
   text-align: center;
 }
-.btn::before {
+.button::before {
   user-select: none;
   position: absolute;
   top: 50%;
@@ -87,68 +87,68 @@ body {
 .btn--xs.active {
   box-shadow: inset 10px 10px 20px rgba(209, 19, 2, 0.5), -3px -3px 15px #6a6a6a, 3px 3px 15px #050606;
 }
-.btn:active,
-.btn.active {
+.button:active,
+.button.active {
   border-color: var(--accent);
   background-image: var(--gr2);
   color: var(--white);
 }
 
 /* Icon buttons (Font Awesome required) */
-.btn.play::before {
+.button.play::before {
   content: '\f04b';
   left: 50%;
 }
-.btn.play.pause {
+.button.play.pause {
   border-color: var(--accent);
   background-image: var(--gr2);
   color: var(--white);
   box-shadow: inset 10px 10px 20px rgba(209, 19, 2, 0.5), -3px -3px 20px #565656, 5px 5px 20px #050606;
 }
-.btn.play.pause::before {
+.button.play.pause::before {
   content: '\f04c';
   left: 50%;
 }
-.btn.pause::before {
+.button.pause::before {
   content: '\f04c';
   left: 50%;
 }
-.btn.dots::before {
+.button.dots::before {
   content: '\f141';
   left: 50%;
 }
-.btn.playlist::before {
+.button.playlist::before {
   content: '\f0c9';
   left: 50%;
 }
-.btn.playlist.isactive {
+.button.playlist.isactive {
   border-color: var(--accent);
   background-image: var(--gr2);
   color: var(--white);
   box-shadow: inset 10px 10px 20px rgba(209, 19, 2, 0.5), -3px -3px 20px #565656, 5px 5px 20px #050606;
 }
-.btn.playlist.isactive::before {
+.button.playlist.isactive::before {
   content: '\f00d';
 }
-.btn.heart::before {
+.button.heart::before {
   content: '\f004';
   left: 49%;
 }
-.btn.prev {
+.button.prev {
   margin-right: 20px;
 }
-.btn.prev::before {
+.button.prev::before {
   content: '\f04a';
   left: 48%;
 }
-.btn.next {
+.button.next {
   margin-left: 20px;
 }
-.btn.next::before {
+.button.next::before {
   content: '\f04e';
   left: 50%;
 }
-.btn.back::before {
+.button.back::before {
   content: '\f053';
   left: 48%;
 }
@@ -322,7 +322,7 @@ body {
   overflow: hidden;
   left: 0;
   width: 100%;
-  padding: 20px 20px 0 20px;
+  padding: 20px 5px 0 20px;
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 50px;
   bottom: -100%;
@@ -340,6 +340,9 @@ body {
   height: 100%;
   width: 100%;
   padding-bottom: 20px;
+}
+.tracks__list::-webkit-scrollbar {
+   display: none;
 }
 .tracks__item {
   color: #A7A8AA;

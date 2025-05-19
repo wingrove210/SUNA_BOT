@@ -1,5 +1,5 @@
     import React, { useState, useRef, useEffect } from "react";
-    import "./App.css";
+    import "../App.css";
     
     // Типизация для музыкального трека
     interface MusicItem {
@@ -11,8 +11,8 @@
     
     const musicPlaylist: MusicItem[] = [
       {
-        title: "Genius ft. Sia, Diplo, Labrinth",
-        artist: "LSD",
+        title: "LSD",
+        artist: "Genius ft. Sia, Diplo, Labrinth",
         image: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/6.jpg",
         url: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/6.mp3",
       },
@@ -193,11 +193,11 @@
       return (
         <div id="app" className="app">
           <div className="app__head row">
-            <button className="btn btn--small back" onClick={prevSong}>
+            <button className="button btn--small back" onClick={prevSong}>
               <i className="fa fa-arrow-left" />
             </button>
             <button
-              className={`btn btn--small playlist${isPlaylistActive ? " isactive" : ""}`}
+              className={`button btn--small playlist${isPlaylistActive ? " isactive" : ""}`}
               onClick={() => setIsPlaylistActive(!isPlaylistActive)}
             >
               <i className="fa fa-list" />
@@ -234,16 +234,16 @@
               </div>
             </div>
             <div className="row">
-              <button className="btn btn--big prev" onClick={prevSong}>
+              <button className="button btn--big prev" onClick={prevSong}>
                 <i className="fa fa-backward" />
               </button>
               <button
-                className={`btn btn--big play${currentlyPlaying ? " pause" : ""}`}
+                className={`button btn--big play${currentlyPlaying ? " pause" : ""}`}
                 onClick={playAudio}
               >
                 <i className={`fa ${currentlyPlaying ? "fa-pause" : "fa-play"}`} />
               </button>
-              <button className="btn btn--big next" onClick={nextSong}>
+              <button className="button btn--big next" onClick={nextSong}>
                 <i className="fa fa-forward" />
               </button>
             </div>
@@ -263,7 +263,7 @@
                     <div className="tracks__info-name">{track.title}</div>
                   </div>
                   <button
-                    className={`btn btn--xs play${currentSong === idx ? " pause" : ""}`}
+                    className={`button btn--xs play${currentSong === idx ? " pause" : ""}`}
                     onClick={(e) => {
                       e.stopPropagation();
                       changeSong(idx, true);
