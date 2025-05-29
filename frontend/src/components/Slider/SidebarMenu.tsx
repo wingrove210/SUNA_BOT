@@ -19,7 +19,7 @@ const SidebarMenu: React.FC = () => {
         {/* Recent */}
         <div className="flex items-center justify-center mb-8">
           {active === "Recent" ? (
-            <span className="text-white text-5xl mr-2 w-1 flex gap-10">.</span>
+            <span className="text-white text-5xl mr-2 w-1 flex justify-center items-center gap-10">.</span>
           ) : (
             <span className="mr-2 w-1" />
           )}

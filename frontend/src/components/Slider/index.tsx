@@ -63,8 +63,8 @@ export default function Slider() {
 			<div
 				className="w-full flex gap-8 px-4 py-4 rounded-lg select-none overflow-x-hidden no-scrollbar"
 				style={{
-					scrollbarWidth: "none", // Firefox
-					msOverflowStyle: "none", // IE/Edge
+					scrollbarWidth: "none",
+					msOverflowStyle: "none",
 					WebkitOverflowScrolling: "touch",
 				}}
 				onTouchStart={onTouchStart}
@@ -74,18 +74,18 @@ export default function Slider() {
 				{slides.map((slide, idx) => (
 					<div
 						key={idx}
-						ref={(el) => (cardRefs.current[idx] = el)}
+						ref={el => { cardRefs.current[idx] = el; }}
 						className={`
-              flex-shrink-0 relative rounded-3xl bg-[#222]
-              ${
-								idx === active
-									? "scale-110 opacity-100 z-20 shadow-2xl transition-all duration-700 ease-in-out"
-									: "scale-90 opacity-70 z-10 transition-all duration-700 ease-in-out"
-							}
-            `}
+      flex-shrink-0 relative rounded-3xl bg-[#222]
+      ${
+        idx === active
+          ? "scale-110 opacity-100 z-20 shadow-2xl transition-all duration-700 ease-in-out"
+          : "scale-90 opacity-70 z-10 transition-all duration-700 ease-in-out"
+      }
+    `}
 						style={{
-							width: idx === active ? 200 : 140,
-							height: idx === active ? 260 : 220,
+							width: 180, // одинаковая ширина для всех слайдов
+							height: 260, // одинаковая высота для всех слайдов!
 							overflow: "hidden",
 							userSelect: "none",
 							transition: "all 0.2s linear",
