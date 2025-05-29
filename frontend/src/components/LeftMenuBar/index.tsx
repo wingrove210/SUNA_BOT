@@ -1,26 +1,13 @@
+
 export default function LeftMenuBar() {
   return (
-    <div className="left-menu-bar">
-      <div className="playlist">
-        <div className="playlist-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29">
-            <g
-              fill="#FFF"
-              fill-rule="evenodd"
-              stroke="#10335C"
-              stroke-width="3"
-            >
-              <rect width="21" height="21" x="7" y="7" rx="5" />
-              <rect width="21" height="21" x="1" y="1" rx="5" />
-            </g>
-          </svg>
-        </div>
-        <div className="ur-playlist">Your playlist</div>
-      </div>
-      <div className="like-recent">
-        <div className="ur-playlist recent">Recent</div>
-        <div className="recent-detail"></div>
-        <div className="ur-playlist like">Like</div>
+    <div className=" py-8 px-2 h-20 w-20 min-h-screen bg-transparent absolute left-0 top-0 rotate-90">
+      <div>
+        <ul className="flex justify-between w-full flex-col items-center h-full">
+          {/* <li><a href="#">Your Playlist</a></li>
+          <li><a href="#">Recent</a></li>
+          <li><a href="#">Like</a></li> */}
+        </ul>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-    import React, { useState, useRef, useEffect } from "react";
-    import "../App.css";
+import React, { useState, useRef, useEffect } from "react";
+    import "./Noinsides.css";
     
     // Типизация для музыкального трека
     interface MusicItem {
@@ -200,7 +200,7 @@
               className={`button btn--small playlist${isPlaylistActive ? " isactive" : ""}`}
               onClick={() => setIsPlaylistActive(!isPlaylistActive)}
             >
-              <i className="fa fa-list" />
+              <i className={`fa ${isPlaylistActive ? "fa-times" : "fa-list"}`} />
             </button>
           </div>
           <div className="app__body row">

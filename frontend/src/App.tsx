@@ -11,6 +11,7 @@ function App(){
       <Routes>
         <Route path="/" element={<NoInsides/>} />
         <Route path="/noinsides" element={<Home />} />
+        {/* <Home path="/home" element={<HomePage/>} /> */}
       </Routes>
     </BrowserRouter>
   );
