@@ -79,7 +79,7 @@ export default function MusicList() {
   };
 
   return (
-    <div className="w-full h-[500px] overflow-y-auto scrollbar-hide">
+    <div className="w-full h-[500px] pb-30 overflow-y-auto scrollbar-hide">
       {musicPlaylist.map((track, idx) => (
         <TrackBlock
           key={idx}
