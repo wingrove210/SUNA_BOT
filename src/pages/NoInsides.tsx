@@ -1,5 +1,5 @@
-    import React, { useState, useRef, useEffect } from "react";
-    import "../App.css";
+import React, { useState, useRef, useEffect } from "react";
+import "../App.css";
     
     // Типизация для музыкального трека
     interface MusicItem {
@@ -80,7 +80,6 @@
       const [currentTime, setCurrentTime] = useState<number>(0);
       const [currentProgressBar, setCurrentProgressBar] = useState<number>(0);
       const [isPlaylistActive, setIsPlaylistActive] = useState<boolean>(false);
-      const [imgLoaded, setImgLoaded] = useState<boolean>(false);
       const [shouldAutoPlay, setShouldAutoPlay] = useState<boolean>(false);
     
       const audioRef = useRef<HTMLAudioElement>(new Audio(musicPlaylist[0].url));
@@ -211,7 +210,6 @@
                 style={{
                   backgroundImage: `url(${musicPlaylist[currentSong].image})`
                 }}
-                onLoad={() => setImgLoaded(true)}
               />
               <div className={`album__info${isPlaylistActive ? " isactive" : ""}`}>
                 <div className="album__info-name">{musicPlaylist[currentSong].title}</div>
