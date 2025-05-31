@@ -1,22 +1,21 @@
 import { useState } from "react";
 import FormFirst from "../Form/FormFirst";
-const genres = [
-  { label: "Любой", icon: "", colSpan: 1 },
-  { label: "Поп-музыка", icon: "🎤", colSpan: 1 },
-  { label: "Хард-рок", icon: "🎸", colSpan: 1 },
-  { label: "Хаус", icon: "🎧", colSpan: 1 },
-  { label: "Поп-рок", icon: "👩‍🎤", colSpan: 1 },
-  { label: "Метал", icon: "🤘", colSpan: 1 },
-  { label: "Панк-рок", icon: "💥", colSpan: 1 },
-  { label: "Синти-поп", icon: "🎹", colSpan: 1 },
-  { label: "Техно", icon: "🎲", colSpan: 1 },
-  { label: "R&B", icon: "🎷", colSpan: 1 },
-  { label: "Регги", icon: "🌴", colSpan: 2 },
-  { label: "Мой вариант", icon: "", colSpan: 2 },
-];
+// const genres = [
+//   { label: "Любой", icon: "", colSpan: 1 },
+//   { label: "Поп-музыка", icon: "🎤", colSpan: 1 },
+//   { label: "Хард-рок", icon: "🎸", colSpan: 1 },
+//   { label: "Хаус", icon: "🎧", colSpan: 1 },
+//   { label: "Поп-рок", icon: "👩‍🎤", colSpan: 1 },
+//   { label: "Метал", icon: "🤘", colSpan: 1 },
+//   { label: "Панк-рок", icon: "💥", colSpan: 1 },
+//   { label: "Синти-поп", icon: "🎹", colSpan: 1 },
+//   { label: "Техно", icon: "🎲", colSpan: 1 },
+//   { label: "R&B", icon: "🎷", colSpan: 1 },
+//   { label: "Регги", icon: "🌴", colSpan: 2 },
+//   { label: "Мой вариант", icon: "", colSpan: 2 },
+// ];
 
 export default function Chat() {
-  const [selected, setSelected] = useState<number>(0);
   const [topSelected, setTopSelected] = useState<number>(0);
 
   return (
