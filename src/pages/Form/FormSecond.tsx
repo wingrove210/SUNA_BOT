@@ -171,7 +171,7 @@ export default function FormSecond() {
         ))}
         <button
           type="submit"
-          className="mt-4 w-full rounded-xl bg-green-500 hover:bg-green-600 text-white py-3 font-semibold text-lg transition"
+          className="mt-4 mb-4 w-full rounded-xl bg-green-500 hover:bg-green-600 text-white py-3 font-semibold text-lg transition"
         >
           Отправить
         </button>

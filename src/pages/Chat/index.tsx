@@ -5,7 +5,7 @@ export default function Chat() {
   const [topSelected, setTopSelected] = useState<number>(0);
 
   return (
-    <div className="text-white px-4 bg-black h-screen">
+    <div className="text-white px-4 bg-black h-auto">
       <h1 className="text-2xl py-3 pl-4 font-light">Создать трек</h1>
       <textarea
         name="text"
