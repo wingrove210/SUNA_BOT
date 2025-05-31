@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NoInsides from './pages/NoInsides'
-import Home from './pages/Home/Home'
 import Chat from './pages/Chat'
 import FormFirst from './pages/Form/FormFirst'
 import FormSecond from './pages/Form/FormSecond'
