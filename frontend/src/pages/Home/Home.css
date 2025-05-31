@@ -24,7 +24,7 @@ body {
 }
 
 
-.app {
+/* .app {
   overflow: hidden;
   position: relative;
   max-width: 400px;
@@ -34,10 +34,10 @@ body {
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(#343A3F 0%, #232528 100%);
-  border: 1px solid #252829; /* darken($g2, 30) примерно */
+  border: 1px solid #252829; 
   border-radius: 50px;
   box-shadow: 5px 5px 35px #18191D;
-}
+} */
 
 .container {
   width: 100vw;

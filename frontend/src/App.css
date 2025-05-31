@@ -18,6 +18,11 @@
   --gr3: linear-gradient(45deg, #D11302 0%, #f9ca24 100%);
 }
 
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 body {
   font-size: 28px;
   background-color: #26282B;
@@ -124,6 +129,7 @@ body {
 }
 .button.playlist.isactive::before {
   content: '\f00d';
+  /* display: none; */
 }
 .button.heart::before {
   content: '\f004';
@@ -149,7 +155,7 @@ body {
 }
 
 /* === APP === */
-.app {
+/* .app {
   overflow: hidden;
   position: relative;
   max-width: 400px;
@@ -160,13 +166,18 @@ body {
   flex-direction: column;
   align-items: center;
   background-image: linear-gradient(#343A3F 0%, #232528 100%);
-  border: 1px solid #252829; /* darken($g2, 30) примерно */
+  border: 1px solid #252829;
   border-radius: 50px;
   box-shadow: 5px 5px 35px #18191D;
-}
+} */
 .app__head {
   justify-content: space-between;
   padding: 35px 35px 0;
+}
+.app__head.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .app__body {
   margin: 30px 0 50px;
@@ -322,6 +333,7 @@ body {
   border-bottom-left-radius: 50px;
   bottom: -100%;
   transition: bottom .25s ease;
+  background-color: #303438;
 }
 .tracks.isactive {
   z-index: 10;
@@ -349,7 +361,7 @@ body {
   border-radius: 20px;
   transition: all .5s ease;
   border: 1px solid transparent;
-  background: #343A3F;
+  background: #303438;
 }
 .tracks__item.isactive {
   background-color: #1a1b1f; /* lighten($dark, 1) примерно */
