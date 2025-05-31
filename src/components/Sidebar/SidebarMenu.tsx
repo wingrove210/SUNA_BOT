@@ -12,7 +12,7 @@ const SidebarMenu: React.FC = () => {
         className="text-white font-bold text-base mb-14"
         style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
       >
-        Your playlist
+        Выбирите тариф
       </span>
       {/* Categories */}
       <nav className="flex flex-col items-center mt-25">
@@ -33,7 +33,7 @@ const SidebarMenu: React.FC = () => {
             style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
             onClick={() => setActive("Recent")}
           >
-            Recent
+            Примеры
           </button>
         </div>
         {/* Like */}
@@ -53,7 +53,7 @@ const SidebarMenu: React.FC = () => {
             style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
             onClick={() => setActive("Like")}
           >
-            Like
+            Лучшее
           </button>
         </div>
       </nav>

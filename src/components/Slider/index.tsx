@@ -1,17 +1,16 @@
 import React, { useRef, useState } from "react";
-
 const slides = [
 	{
 		title: "Relax",
-		img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
+		video: '/1.mp4',
 	},
 	{
 		title: "Spring",
-		img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
+		video: "/Полная версия трекопса.mp4",
 	},
 	{
 		title: "Chill",
-		img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80",
+		video: "https://www.w3schools.com/html/mov_bbb.mp4",
 	},
 ];
 
@@ -91,10 +90,13 @@ export default function Slider() {
 							transition: "all 0.2s linear",
 						}}
 					>
-						<img
-							src={slide.img}
-							alt={slide.title}
+						<video
+							src={slide.video}
 							className="w-full h-full object-cover pointer-events-none select-none"
+							autoPlay
+							loop
+							muted
+							playsInline
 							draggable={false}
 						/>
 						<div className="absolute left-6 bottom-8 text-white font-semibold text-2xl drop-shadow">

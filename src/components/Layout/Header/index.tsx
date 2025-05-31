@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <div className="flex w-full justify-between px-10 py-4">
-      <div className="text-white">Discover</div>
+      <div className="text-white">Трекопёс</div>
       <div className="w-10 h-10 flex items-center justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
