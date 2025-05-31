@@ -1,4 +1,4 @@
-    import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
     import "../App.css";
     
     // Типизация для музыкального трека
@@ -199,8 +199,8 @@
             <button
               className={`button btn--small playlist${isPlaylistActive ? " isactive" : ""}`}
               onClick={() => setIsPlaylistActive(!isPlaylistActive)}
+              aria-label={isPlaylistActive ? "Закрыть плейлист" : "Открыть плейлист"}
             >
-              <i className="fa fa-list" />
             </button>
           </div>
           <div className="app__body row">
