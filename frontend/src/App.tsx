@@ -10,8 +10,11 @@ function App(){
   return(
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<NoInsides/>} />
-        <Route path="/noinsides" element={<Home />} />
+        <Route path="/" element={<Chat/>} />
+        <Route path="/noinsides" element={<NoInsides />} />
+        {/* <Route path="/chat" element={<Chat />} /> */}
+        <Route path="/form/first" element={<FormFirst />} />
+        <Route path="/form/second" element={<FormSecond />} />
       </Routes>
     </BrowserRouter>
   );

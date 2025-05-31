@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import FormFirst from "../Form/FormFirst";
 const genres = [
   { label: "Любой", icon: "", colSpan: 1 },
   { label: "Поп-музыка", icon: "🎤", colSpan: 1 },
@@ -20,7 +20,7 @@ export default function Chat() {
   const [topSelected, setTopSelected] = useState<number>(0);
 
   return (
-    <div className="text-white px-4 bg-[#171717] h-screen">
+    <div className="text-white px-4 bg-[#171717] h-auto">
       <h1 className="text-xl py-3">Создать песню</h1>
       <div className="grid grid-cols-2 w-full text-lg gap-2 mt-2">
         {["Придумать текст с GigaChat", "Свой текст", "Без слов"].map((label, idx) => (
@@ -46,8 +46,9 @@ export default function Chat() {
         className="text-sm w-full px-2 py-2 bg-[#232323] rounded-xl"
       ></textarea>
       <h1 className="text-sm py-4">Жанр</h1>
-      <div className="grid grid-cols-2 w-full text-base gap-2 mt-2">
-        {genres.map((genre, idx) => (
+      <div className="w-full text-base gap-2 mt-2">
+        <FormFirst/>
+        {/* {genres.map((genre, idx) => (
           <button
             key={genre.label}
             className={`col-span-${genre.colSpan} rounded-xl py-2 border ${
@@ -61,10 +62,10 @@ export default function Chat() {
             {genre.icon && <span className="mr-2">{genre.icon}</span>}
             {genre.label}
           </button>
-        ))}
+        ))} */}
       </div>
       <span className="w-full h-[1px] bg-[#747474] flex mt-3 mb-2"></span>
-      <button className="w-full rounded-2xl bg-[#747474] text-sm py-2">Создать</button>
+      <button className="w-full rounded-2xl bg-[#747474] text-sm py-2 mb-4">Создать</button>
     </div>
   );
 }
