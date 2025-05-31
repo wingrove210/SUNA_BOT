@@ -4,7 +4,7 @@ import Footer from "../../components/Layout/Footer";
 import Header from "../../components/Layout/Header";
 import MusicList from "../../components/MusicList";
 import Slider from "../../components/Slider";
-import SidebarMenu from "../../components/Slider/SidebarMenu";
+import SidebarMenu from "../../components/Sidebar/SidebarMenu";
 
 const Home: React.FC = () => {
 
