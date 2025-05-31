@@ -154,16 +154,16 @@ export default function FormSecond() {
   const data = useMemo(() => QUESTIONS[topic] || QUESTIONS["love"], [topic]);
 
   return (
-    <div className="max-w-xl mx-auto py-8 px-4">
-      <h1 className="text-2xl font-bold mb-2">{data.title}</h1>
-      <div className="text-gray-400 mb-6">{data.subtitle}</div>
+    <div className="max-w-xl mx-auto py-8 px-4 text-white">
+      <h1 className="text-lg font-bold mb-2">{data.title}</h1>
+      <div className="text-gray-400 mb-6 text-2xl">{data.subtitle}</div>
       <form className="flex flex-col gap-5">
         {data.questions.map((q, idx) => (
           <div key={idx}>
             <label className="block mb-2 text-base font-medium">{q}</label>
             <textarea
               rows={2}
-              className="w-full rounded-xl bg-[#232323] text-white px-3 py-2 resize-none"
+              className="w-full rounded-xl bg-[#232323] text-white px-3 py-2 resize-none text-lg"
               name={`q${idx}`}
               placeholder="Ваш ответ..."
             />

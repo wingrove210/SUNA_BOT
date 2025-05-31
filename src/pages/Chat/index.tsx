@@ -32,7 +32,6 @@ export default function Chat() {
       <div className="w-full text-base gap-2 mt-2">
         <FormFirst/>
       </div>
-      <button className="w-full rounded-3xl bg-[#747474] text-sm py-2 mb-4 mt-4 h-12">Создать</button>
     </div>
   );
 }

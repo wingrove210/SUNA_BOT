@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const topics = [
@@ -18,11 +19,22 @@ const topics = [
 
 export default function FormFirst() {
 	const navigate = useNavigate();
+	const [selected, setSelected] = useState<{ key: string; label: string } | null>(
+		null
+	);
 
 	const handleSelect = (topic: { key: string; label: string }) => {
-		navigate(
-			`/form/second?topic=${topic.key}&label=${encodeURIComponent(topic.label)}`
-		);
+		setSelected(topic);
+	};
+
+	const handleCreate = () => {
+		if (selected) {
+			navigate(
+				`/form/second?topic=${selected.key}&label=${encodeURIComponent(
+					selected.label
+				)}`
+			);
+		}
 	};
 
 	const firstButtons = topics.slice(0, 12);
@@ -35,8 +47,13 @@ export default function FormFirst() {
 				{firstButtons.map((topic) => (
 					<button
 						key={topic.key}
-						className="w-full h-12 flex items-center justify-center rounded-3xl bg-[#14141E] text-white text-sm hover:bg-[#333] border-gray-500 border-[1px] hover:border-green-400 transition"
+						className={`w-full h-12 flex items-center justify-center rounded-3xl bg-[#14141E] text-white text-sm border-[1px] transition
+                            ${selected?.key === topic.key
+								? 'border-green-400'
+								: 'border-gray-500 hover:border-green-400 hover:bg-[#333]'}
+                        `}
 						onClick={() => handleSelect(topic)}
+						type="button"
 					>
 						{topic.label}
 					</button>
@@ -44,13 +61,30 @@ export default function FormFirst() {
 				{lastButton && (
 					<button
 						key={lastButton.key}
-						className="col-span-2 w-full h-12 flex items-center justify-center rounded-3xl bg-[#14141E] text-white text-sm hover:bg-[#333] border-gray-500 border-[1px] hover:border-green-400 transition"
+						className={`col-span-2 w-full h-12 flex items-center justify-center rounded-3xl bg-[#14141E] text-white text-sm border-[1px] transition
+                            ${selected?.key === lastButton.key
+								? 'border-green-400'
+								: 'border-gray-500 hover:border-green-400 hover:bg-[#333]'}
+                        `}
 						onClick={() => handleSelect(lastButton)}
+						type="button"
 					>
 						{lastButton.label}
 					</button>
 				)}
 			</div>
+			<button
+				className={`mt-4 w-full h-12 rounded-3xl text-white text-lg font-semibold transition
+                    ${selected
+						? 'bg-green-500 hover:bg-green-600'
+						: 'bg-gray-400 cursor-not-allowed'}
+                `}
+				onClick={handleCreate}
+				disabled={!selected}
+				type="button"
+			>
+				Создать
+			</button>
 		</div>
 	);
 }

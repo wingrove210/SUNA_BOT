@@ -4,6 +4,7 @@ import Chat from './pages/Chat'
 import FormFirst from './pages/Form/FormFirst'
 import FormSecond from './pages/Form/FormSecond'
 import './index.css'
+import Home from './pages/Home/Home'
 
 function App(){
   return(
@@ -11,7 +12,7 @@ function App(){
       <Routes>
         <Route path="/" element={<Chat/>} />
         <Route path="/noinsides" element={<NoInsides />} />
-        {/* <Route path="/chat" element={<Chat />} /> */}
+        <Route path="/player" element={<Home />} />
         <Route path="/form/first" element={<FormFirst />} />
         <Route path="/form/second" element={<FormSecond />} />
       </Routes>
