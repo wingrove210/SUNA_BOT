@@ -4,9 +4,9 @@ export default function Header() {
   const [isPlaylistActive, setIsPlaylistActive] = useState<boolean>(false);
   
   return (
-    <div className="flex w-full justify-between px-10 py-4">
+    <div className="flex w-full justify-between px-10 py-4 mt-10">
       <div className="">
-        <img src="/logo.png" alt="" className="w-15 h-15" />
+        <img src="/logo.png" alt="" className="w-15 h-15 ml-5" />
       </div>
       <div className="">
         <button
