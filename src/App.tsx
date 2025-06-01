@@ -3,6 +3,7 @@ import NoInsides from './pages/NoInsides'
 import { useEffect } from 'react'
 import FormFirst from './pages/Form/FormFirst'
 import FormSecond from './pages/Form/FormSecond'
+import Chat from './pages/Chat'
 import './index.css'
 import Home from './pages/Home/Home'
 interface TelegramWebApp {
@@ -44,7 +45,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/noinsides" element={<NoInsides />} />
-        {/* <Route path="/player" element={<Home />} /> */}
+        <Route path="/chat" element={<Chat />} />
         <Route path="/form/first" element={<FormFirst />} />
         <Route path="/form/second" element={<FormSecond />} />
       </Routes>

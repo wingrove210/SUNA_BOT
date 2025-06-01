@@ -143,7 +143,6 @@ import "../App.css";
         return () => {
           if (intervalRef.current) clearInterval(intervalRef.current);
         };
-        // eslint-disable-next-line
       }, [currentlyPlaying, trackDuration]);
     
       function playAudio() {
