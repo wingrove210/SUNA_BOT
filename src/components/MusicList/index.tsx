@@ -66,7 +66,11 @@ const musicPlaylist: MusicItem[] = [
   },
 ];
 
-export default function MusicList() {
+type MusicListProps = {
+  activeTab: "Recent" | "Like";
+};
+
+export default function MusicList({ activeTab }: MusicListProps) {
   const [activeId, setActiveId] = useState<number | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -78,9 +82,15 @@ export default function MusicList() {
     }
   };
 
+  // Фильтрация треков
+  const tracksToShow =
+    activeTab === "Recent"
+      ? musicPlaylist.slice(0, 5)
+      : musicPlaylist.slice(5, 10);
+
   return (
     <div className="w-full h-[500px] pb-30 overflow-y-auto scrollbar-hide">
-      {musicPlaylist.map((track, idx) => (
+      {tracksToShow.map((track, idx) => (
         <TrackBlock
           key={idx}
           id={idx}

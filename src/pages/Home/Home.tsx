@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './Home.css'
 import Footer from "../../components/Layout/Footer";
 import Header from "../../components/Layout/Header";
@@ -7,6 +7,7 @@ import Slider from "../../components/Slider";
 import SidebarMenu from "../../components/Sidebar/SidebarMenu";
 
 const Home: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<"Recent" | "Like">("Recent");
 
   return (
     <>
@@ -15,8 +16,10 @@ const Home: React.FC = () => {
           <div className="app">
             <Header/>
             <Slider/>
-            <SidebarMenu/>
-            <MusicList/>
+            <div className="flex">
+              <SidebarMenu activeTab={activeTab} setActiveTab={setActiveTab} />
+              <MusicList activeTab={activeTab} />
+            </div>
             <Footer/>
           </div>
         </div>
