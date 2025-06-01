@@ -58,7 +58,7 @@ export default function Slider() {
 
 
 	return (
-		<div className="relative w-[85vw] overflow-x-hidden ml-[12vw] h-[30vh]">
+		<div className="relative w-[85vw] overflow-x-hidden ml-[12vw] h-64 min-h-64">
 			<div
 				className="w-full h-full flex gap-8 px-4 py-4 rounded-lg select-none overflow-x-hidden no-scrollbar"
 				style={{
