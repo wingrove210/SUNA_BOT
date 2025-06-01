@@ -1,21 +1,25 @@
+import { useState } from "react";
+import './index.css'
 export default function Header() {
+  const [isPlaylistActive, setIsPlaylistActive] = useState<boolean>(false);
+  
   return (
     <div className="flex w-full justify-between px-10 py-4">
       <div className="">
-        <img src="/logo.png" alt="" className="w-15 h-15"/>
+        <img src="/logo.png" alt="" className="w-15 h-15" />
       </div>
-      <div className="w-10 h-10 flex items-center justify-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="20"
-          viewBox="0 0 24 14"
-          fill="none"
+      <div className="">
+        <button
+          className={`button btn--small playlist${isPlaylistActive ? " isactive" : ""}`}
+          onClick={() => setIsPlaylistActive(!isPlaylistActive)}
+          aria-label={isPlaylistActive ? "Закрыть плейлист" : "Открыть плейлист"}
         >
-          <rect x="0" y="0" width="80" height="2" fill="#ffffff" rx="1" />
-          <rect x="6" y="6" width="10" height="2" fill="#ffffff" rx="1" />
-          <rect x="20" y="6" width="10" height="2" fill="#ffffff" rx="1" />
-        </svg>
+          {isPlaylistActive ? (
+            <i className="fas fa-times" />
+          ) : (
+            <i className="fas fa-list" />
+          )}
+        </button>
       </div>
     </div>
   );

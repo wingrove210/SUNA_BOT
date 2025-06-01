@@ -29,28 +29,6 @@ body {
 }
 
 /* === BUTTONS === */
-.button {
-  cursor: pointer;
-  position: relative;
-  display: inline-block;
-  outline: none;
-  border-radius: 50px;
-  background-color: var(--black);
-  background-image: var(--gr);
-  color: var(--g2);
-  text-align: center;
-  border-style: solid;
-  border-color: #232328; /* lighten($dark, 10) примерно */
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 600;
-  text-align: center;
-}
-.button::before {
-  user-select: none;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
 .btn--big {
   font-size: 1.1rem;
   height: 80px;
@@ -63,18 +41,7 @@ body {
 .btn--big.active {
   box-shadow: inset 10px 10px 20px rgba(209, 19, 2, 0.5), -3px -3px 20px #565656, 5px 5px 20px #050606;
 }
-.btn--small {
-  box-shadow: -3px -3px 15px #6a6a6a, 3px 3px 15px #050606;
-  font-size: .8rem;
-  height: 50px;
-  width: 50px;
-  border-width: 2px;
-  line-height: 1;
-}
-.btn--small:active,
-.btn--small.active {
-  box-shadow: inset 10px 10px 20px rgba(209, 19, 2, 0.5), -3px -3px 15px #6a6a6a, 3px 3px 15px #050606;
-}
+
 .btn--xs {
   box-shadow: -3px -3px 15px #6a6a6a, 3px 3px 15px #050606;
   font-size: .6rem;
