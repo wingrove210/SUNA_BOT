@@ -58,9 +58,9 @@ export default function Slider() {
 
 
 	return (
-		<div className="relative w-[85vw] overflow-x-hidden ml-[12vw]">
+		<div className="relative w-[85vw] overflow-x-hidden ml-[12vw] h-[30vh]">
 			<div
-				className="w-full flex gap-8 px-4 py-4 rounded-lg select-none overflow-x-hidden no-scrollbar"
+				className="w-full h-full flex gap-8 px-4 py-4 rounded-lg select-none overflow-x-hidden no-scrollbar"
 				style={{
 					scrollbarWidth: "none",
 					msOverflowStyle: "none",
@@ -84,7 +84,7 @@ export default function Slider() {
     `}
 						style={{
 							width: 180, // одинаковая ширина для всех слайдов
-							height: 260, // одинаковая высота для всех слайдов!
+							height: "100%", // одинаковая высота для всех слайдов!
 							overflow: "hidden",
 							userSelect: "none",
 							transition: "all 0.2s linear",

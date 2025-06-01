@@ -4,7 +4,7 @@ const SidebarMenu: React.FC = () => {
   const [active, setActive] = useState<"Recent" | "Like">("Recent");
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-14 flex flex-col items-center pt-28 z-40">
+    <aside className="fixed left-0 top-0 h-screen w-14 flex flex-col items-center pt-[10vh] z-40">
       <div className="w-5 h-5 mb-3 text-white">
         {playlistSvg()}
       </div>
