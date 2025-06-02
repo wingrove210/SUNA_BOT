@@ -8,7 +8,7 @@ export default function Chat() {
 
 
   return (
-    <div className="text-white px-4 bg-black h-auto">
+    <div className="text-white px-4 bg-black h-auto pt-12">
       <h1 className="text-2xl py-3 pl-4 font-light">Создать трек</h1>
       <textarea
         name="text"

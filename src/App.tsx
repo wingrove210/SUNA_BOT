@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     if (tg) {
       tg.expand();
-      tg.requestFullscreen?.(); // безопасный вызов
+      // tg.requestFullscreen?.(); 
       tg.ready(); 
     }
   }, []);
