@@ -17,7 +17,7 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({ activeTab, setActiveTab }) =>
     >
       Выбирите тариф
     </span>
-    <nav className="flex flex-col items-center mt-25">
+    <nav className="flex flex-col items-center mt-18">
       <div className="flex items-center justify-center mb-8">
         {activeTab === "Recent" ? (
           <span className="text-white text-5xl mr-2 w-1 flex justify-center items-center gap-10">.</span>
