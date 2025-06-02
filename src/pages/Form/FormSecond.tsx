@@ -205,7 +205,7 @@ export default function FormSecond() {
       if (!response.ok) throw new Error('Ошибка отправки сообщения');
 
       // Можно добавить редирект или уведомление
-      navigate("/success"); // или куда нужно
+      // navigate("/success"); // или куда нужно
     } catch (error) {
       setShowError(true);
       console.log(error)
