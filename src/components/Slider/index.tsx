@@ -10,7 +10,7 @@ const slides = [
 	},
 	{
 		title: "ULTRA",
-		video: "https://www.w3schools.com/html/mov_bbb.mp4",
+		video: "/Полная версия трекопса.mp4",
 	},
 ];
 
@@ -35,7 +35,7 @@ export default function Slider() {
 		touchStartX.current = e.touches[0].clientX;
 	};
 	const onTouchMove = (e: React.TouchEvent) => {
-		e.preventDefault();
+		// Можно добавить логику для визуального эффекта
 	};
 	const onTouchEnd = (e: React.TouchEvent) => {
 		if (touchStartX.current === null) return;
@@ -47,18 +47,34 @@ export default function Slider() {
 			next = active - 1;
 		}
 		if (next !== active) {
-			setActive(next); // scale сменится мгновенно и плавно
-			setTimeout(() => scrollToCard(next), 300); // scroll после scale — совпадает с duration
+			setActive(next);
+			setTimeout(() => scrollToCard(next), 300);
 		} else {
-			// Просто центрируем текущую, если ничего не изменилось
 			scrollToCard(active);
 		}
 		touchStartX.current = null;
 	};
 
+	// Клик по любой точке слайдера: если не последний — вправо, если последний — влево
+	const handleSliderClick = () => {
+		if (active < slides.length - 1) {
+			setActive(active + 1);
+			setTimeout(() => scrollToCard(active + 1), 300);
+		} else {
+			setActive(0);
+			setTimeout(() => scrollToCard(0), 300);
+		}
+	};
 
 	return (
-		<div className="relative w-[85vw] overflow-x-hidden ml-[12vw] h-64 min-h-64">
+		<div
+			className="relative w-[85vw] overflow-x-hidden ml-[12vw] h-64 min-h-64"
+			onClick={handleSliderClick}
+			onTouchStart={onTouchStart}
+			onTouchMove={onTouchMove}
+			onTouchEnd={onTouchEnd}
+			style={{ cursor: "pointer" }}
+		>
 			<div
 				className="w-full h-full flex gap-8 px-4 py-4 rounded-lg select-none overflow-x-hidden no-scrollbar"
 				style={{
@@ -66,25 +82,21 @@ export default function Slider() {
 					msOverflowStyle: "none",
 					WebkitOverflowScrolling: "touch",
 				}}
-				onTouchStart={onTouchStart}
-				onTouchMove={onTouchMove}
-				onTouchEnd={onTouchEnd}
 			>
 				{slides.map((slide, idx) => (
 					<div
 						key={idx}
 						ref={el => { cardRefs.current[idx] = el; }}
 						className={`
-      flex-shrink-0 relative rounded-3xl bg-[#222]
-      ${
-        idx === active
-          ? "scale-110 opacity-100 z-20 shadow-2xl transition-all duration-700 ease-in-out"
-          : "scale-90 opacity-70 z-10 transition-all duration-700 ease-in-out"
-      }
-    `}
+              flex-shrink-0 relative rounded-3xl bg-[#222]
+              ${idx === active
+							? "scale-110 opacity-100 z-20 shadow-2xl transition-all duration-700 ease-in-out"
+							: "scale-90 opacity-70 z-10 transition-all duration-700 ease-in-out"
+						}
+            `}
 						style={{
-							width: 180, // одинаковая ширина для всех слайдов
-							height: "100%", // одинаковая высота для всех слайдов!
+							width: 180,
+							height: "100%",
 							overflow: "hidden",
 							userSelect: "none",
 							transition: "all 0.2s linear",
@@ -102,7 +114,7 @@ export default function Slider() {
 						<div className="absolute left-6 bottom-8 text-white font-semibold text-2xl drop-shadow">
 							{slide.title}
 						</div>
-						<button className="absolute right-5 bottom-5 w-11 h-11 rounded-full bg-white/90 flex items-center justify-center shadow-md">
+						<button className="absolute right-5 bottom-5 w-11 h-11 rounded-full bg-white/90 flex items-center justify-center shadow-md pointer-events-none">
 							<svg width="22" height="22" viewBox="0 0 22 22" fill="none">
 								<circle cx="11" cy="11" r="11" fill="none" />
 								<path d="M8 7L15 11L8 15V7Z" fill="#222" />
