@@ -6,24 +6,9 @@ import FormSecond from './pages/Form/FormSecond'
 import Chat from './pages/Chat'
 import './index.css'
 import Home from './pages/Home/Home'
-interface TelegramWebApp {
-  expand: () => void;
-  ready: () => void;
-  setHeaderColor: (color: string) => void;
-  requestFullscreen: () => void; // Добавьте эту строку
-  // Добавьте другие методы по необходимости
-}
+import type { TelegramWebApp } from './types/telegram' // Импортируйте тип
 
-declare global {
-  interface Window {
-    Telegram?: {
-      WebApp?: TelegramWebApp;
-      [key: string]: unknown;
-    };
-  }
-}
-
-const tg = window.Telegram?.WebApp;
+const tg = window.Telegram?.WebApp as TelegramWebApp | undefined;
 
 function App() {
   useEffect(() => {
