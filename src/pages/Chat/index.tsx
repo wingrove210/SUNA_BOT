@@ -1,14 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // добавьте импорт
 import FormFirst from "../Form/FormFirst";
+import type { TelegramWebApp } from "../../types/telegram";
 
-
-
+const tg = window.Telegram?.WebApp as TelegramWebApp | undefined;
 export default function Chat() {
   const [topSelected, setTopSelected] = useState<number>(0);
+  const navigate = useNavigate(); // инициализация useNavigate
 
+  useEffect(() => {
+    if (tg) {
+      tg.expand();
+      tg.ready();
+      if (tg.BackButton) {
+        tg.BackButton.show();
+        tg.BackButton.onClick(() => {
+          // обработка нажатия назад
+          navigate(-1); // переход на предыдущую страницу
+        });
+      }
+    }
+  }, [navigate]);
 
   return (
-    <div className="text-white px-4 bg-black h-auto pt-12">
+    <div className="text-white px-4 bg-black h-auto pt-14">
       <h1 className="text-2xl py-3 pl-4 font-light">Создать трек</h1>
       <textarea
         name="text"
