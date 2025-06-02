@@ -15,7 +15,7 @@ function isMobile() {
 }
 
 function App() {
-  const [mobile, setMobile] = useState(true);
+  const [mobile, setMobile] = useState(isMobile());
 
   useEffect(() => {
     setMobile(isMobile());
