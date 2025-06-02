@@ -19,9 +19,19 @@ export interface TelegramWebApp {
   setHeaderColor?: (color: string) => void;
   requestFullscreen?: () => void;
   MainButton: TelegramMainButton;
-  BackButton?: TelegramBackButton; // <-- добавьте это свойство
+  BackButton?: TelegramBackButton;
   onEvent?: (event: string, callback: () => void) => void;
   offEvent?: (event: string, callback: () => void) => void;
+  initDataUnsafe?: {
+    user?: {
+      id: number;
+      first_name?: string;
+      last_name?: string;
+      username?: string;
+      language_code?: string;
+    };
+    [key: string]: unknown;
+  };
 }
 
 declare global {

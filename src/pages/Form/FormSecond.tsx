@@ -177,6 +177,8 @@ export default function FormSecond() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setShowError(false);
+
     if (!event.currentTarget.checkValidity()) {
       setShowError(true);
       return;
@@ -188,9 +190,10 @@ export default function FormSecond() {
       .join("\n\n")}`;
 
     try {
-      // Отправка в Telegram-бота trekopesbot (chat_id можно заменить на свой)
       const botToken = '7919436616:AAF1STWTxGHYhzUGR7mGkgLAGhuCJXWvZiA';
-      const chatId = '@trekopesbot'; // Можно заменить на id или username чата/группы/админа
+      // Получаем chat_id пользователя из Telegram WebApp
+      const chatId = tg?.initDataUnsafe?.user?.id;
+      if (!chatId) throw new Error('Не удалось определить chat_id пользователя');
 
       const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: 'POST',
@@ -204,11 +207,10 @@ export default function FormSecond() {
 
       if (!response.ok) throw new Error('Ошибка отправки сообщения');
 
-      // Можно добавить редирект или уведомление
-      // navigate("/success"); // или куда нужно
+      navigate("/success");
     } catch (error) {
       setShowError(true);
-      console.log(error)
+      console.log(error);
     }
   };
 
