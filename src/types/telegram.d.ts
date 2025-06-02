@@ -7,7 +7,8 @@ interface TelegramMainButton {
 export interface TelegramWebApp {
   expand: () => void;
   ready: () => void;
-  setHeaderColor: (color: string) => void; // <--- добавьте эту строку
+  setHeaderColor: (color: string) => void; 
+  requestFullscreen: () => void; // <--- добавьте эту строку
   MainButton: TelegramMainButton;
 }
 
