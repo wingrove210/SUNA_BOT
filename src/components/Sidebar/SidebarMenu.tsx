@@ -7,7 +7,7 @@ type SidebarMenuProps = {
 };
 
 const SidebarMenu: React.FC<SidebarMenuProps> = ({ activeTab, setActiveTab }) => (
-  <aside className="fixed left-0 top-0 h-screen w-14 flex flex-col items-center pt-[10vh] z-40">
+  <aside className="fixed left-0 top-0 h-screen w-14 flex flex-col items-center pt-[18vh] z-40">
     <div className="w-5 h-5 mb-3 text-white">
       {playlistSvg()}
     </div>

@@ -189,7 +189,7 @@ export default function FormSecond() {
 
     try {
       // Отправка в Telegram-бота trekopesbot (chat_id можно заменить на свой)
-      const botToken = '7683789001:AAGw-K5_wWnvmHPvtC6fRX-Cm7H45B-Gmf0';
+      const botToken = '7919436616:AAF1STWTxGHYhzUGR7mGkgLAGhuCJXWvZiA';
       const chatId = '@trekopesbot'; // Можно заменить на id или username чата/группы/админа
 
       const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
