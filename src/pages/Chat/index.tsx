@@ -16,6 +16,7 @@ export default function Chat() {
         tg.BackButton.show();
         tg.BackButton.onClick(() => {
           // обработка нажатия назад
+          if (tg.MainButton) tg.MainButton.hide(); // скрыть mainButton
           navigate(-1); // переход на предыдущую страницу
         });
       }
