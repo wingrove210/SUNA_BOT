@@ -26,21 +26,6 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    if (tg) {
-      tg.ready();
-    }
-    if (tg && tg.initData) {
-      if (tg.isExpanded) {
-        // ok
-      } else {
-        document.body.innerHTML = "Откройте приложение в мобильном Telegram!";
-      }
-    } else {
-      document.body.innerHTML = "Этот сервис работает только внутри Telegram!";
-    }
-  }, []);
-
   if (!mobile) {
     return (
       <div style={{
