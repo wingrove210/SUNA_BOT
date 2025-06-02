@@ -1,5 +1,7 @@
-import  { useMemo } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useMemo, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import type { TelegramWebApp } from "../../types/telegram";
+const tg = window.Telegram?.WebApp as TelegramWebApp | undefined;
 
 const QUESTIONS: Record<string, { title: string; subtitle: string; questions: string[] }> = {
   love: {
@@ -152,12 +154,69 @@ export default function FormSecond() {
   const query = useQuery();
   const topic = query.get("topic") || "love";
   const data = useMemo(() => QUESTIONS[topic] || QUESTIONS["love"], [topic]);
+  const navigate = useNavigate();
+  const [showError, setShowError] = useState(false);
+
+  useEffect(() => {
+    if (tg) {
+      tg.expand();
+      tg.ready();
+      if (tg.BackButton) {
+        tg.BackButton.show();
+        tg.BackButton.onClick(() => {
+          if (tg.MainButton) tg.MainButton.hide();
+          tg.BackButton?.hide();
+          navigate(-1);
+        });
+      }
+    }
+    return () => {
+      if (tg?.BackButton) tg.BackButton.onClick(() => {});
+    };
+  }, [navigate]);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!event.currentTarget.checkValidity()) {
+      setShowError(true);
+      return;
+    }
+    const formData = new FormData(event.currentTarget);
+    const answers = data.questions.map((_, idx) => formData.get(`q${idx}`));
+    const message = `🎵 *Новая заявка на трек!*\n\n*Тема:* ${data.title}\n\n${data.questions
+      .map((q, idx) => `▫️ *${q}*\n${answers[idx] || "-"}`)
+      .join("\n\n")}`;
+
+    try {
+      // Отправка в Telegram-бота trekopesbot (chat_id можно заменить на свой)
+      const botToken = '7683789001:AAGw-K5_wWnvmHPvtC6fRX-Cm7H45B-Gmf0';
+      const chatId = '@trekopesbot'; // Можно заменить на id или username чата/группы/админа
+
+      const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message,
+          parse_mode: "Markdown",
+        }),
+      });
+
+      if (!response.ok) throw new Error('Ошибка отправки сообщения');
+
+      // Можно добавить редирект или уведомление
+      navigate("/success"); // или куда нужно
+    } catch (error) {
+      setShowError(true);
+      console.log(error)
+    }
+  };
 
   return (
-    <div className="max-w-xl mx-auto py-8 px-4 text-white">
+    <div className="max-w-xl mx-auto py-14 px-4 text-white">
       <h1 className="text-lg font-bold mb-2">{data.title}</h1>
       <div className="text-gray-400 mb-6 text-2xl">{data.subtitle}</div>
-      <form className="flex flex-col gap-5">
+      <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         {data.questions.map((q, idx) => (
           <div key={idx}>
             <label className="block mb-2 text-base font-medium">{q}</label>
@@ -166,6 +225,7 @@ export default function FormSecond() {
               className="w-full rounded-xl bg-[#232323] text-white px-3 py-2 resize-none text-lg"
               name={`q${idx}`}
               placeholder="Ваш ответ..."
+              required
             />
           </div>
         ))}
@@ -176,6 +236,36 @@ export default function FormSecond() {
           Отправить
         </button>
       </form>
+      {showError && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backdropFilter: "blur(5px)",
+            backgroundColor: "rgba(0,0,0,0.3)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              background: "#fff",
+              padding: "20px",
+              borderRadius: "8px",
+              textAlign: "center",
+              color: "#000",
+            }}
+          >
+            <p>Пожалуйста, заполните все поля или попробуйте позже.</p>
+            <button onClick={() => setShowError(false)}>Закрыть</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -6,7 +6,7 @@ import type { TelegramWebApp } from "../../types/telegram";
 const tg = window.Telegram?.WebApp as TelegramWebApp | undefined;
 export default function Chat() {
   const [topSelected, setTopSelected] = useState<number>(0);
-  const navigate = useNavigate(); // инициализация useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (tg) {
