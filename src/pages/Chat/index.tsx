@@ -16,11 +16,17 @@ export default function Chat() {
         tg.BackButton.show();
         tg.BackButton.onClick(() => {
           // обработка нажатия назад
-          if (tg.MainButton) tg.MainButton.hide(); // скрыть mainButton
-          navigate(-1); // переход на предыдущую страницу
+          if (tg.MainButton) tg.MainButton.hide();
+          tg.BackButton?.hide(); // скрыть кнопку назад
+          // tg.CloseButton не существует, просто скрываем BackButton
+          navigate(-1);
         });
       }
     }
+    // Очистка обработчика при размонтировании
+    return () => {
+      if (tg?.BackButton) tg.BackButton.onClick(() => {});
+    };
   }, [navigate]);
 
   return (
