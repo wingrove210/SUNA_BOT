@@ -1,9 +1,41 @@
 import { useState } from "react";
 import FormFirst from "../Form/FormFirst";
+import { useEffect } from "react";
+
+interface TelegramMainButton {
+  setParams: (params: { text?: string }) => void;
+  // Добавьте другие методы MainButton по необходимости
+}
+
+interface TelegramWebApp {
+  expand: () => void;
+  ready: () => void;
+  setHeaderColor: (color: string) => void;
+  requestFullscreen: () => void;
+  MainButton: TelegramMainButton; // <-- Добавьте это свойство
+  // Добавьте другие методы по необходимости
+}
+
+declare global {
+  interface Window {
+    Telegram?: {
+      WebApp?: TelegramWebApp;
+      [key: string]: unknown;
+    };
+  }
+}
+
+const tg = window.Telegram?.WebApp;
 
 export default function Chat() {
   const [topSelected, setTopSelected] = useState<number>(0);
-
+  useEffect(() => {
+    if (tg && tg.MainButton) {
+      tg.MainButton.setParams({
+        text: 'Send Data'
+      });
+    }
+  }, []);
   return (
     <div className="text-white px-4 bg-black h-auto">
       <h1 className="text-2xl py-3 pl-4 font-light">Создать трек</h1>
