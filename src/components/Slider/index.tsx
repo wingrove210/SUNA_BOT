@@ -34,7 +34,7 @@ export default function Slider() {
 	const onTouchStart = (e: React.TouchEvent) => {
 		touchStartX.current = e.touches[0].clientX;
 	};
-	const onTouchMove = (e: React.TouchEvent) => {
+	const onTouchMove = () => {
 		// Можно добавить логику для визуального эффекта
 	};
 	const onTouchEnd = (e: React.TouchEvent) => {
