@@ -22,6 +22,16 @@ function App() {
     if (tg) {
       tg.ready();
     }
+    if (tg && tg.initData) {
+    // Проверяем, открыто ли в мобильном Telegram
+    if (tg.isExpanded) {
+        console.log("Работает в мобильном Telegram");
+    } else {
+        document.body.innerHTML = "Откройте приложение в мобильном Telegram!";
+    }
+} else {
+    document.body.innerHTML = "Этот сервис работает только внутри Telegram!";
+}
   }, []);
 
   return (

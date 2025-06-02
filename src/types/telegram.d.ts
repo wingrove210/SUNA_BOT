@@ -22,6 +22,8 @@ export interface TelegramWebApp {
   BackButton?: TelegramBackButton;
   onEvent?: (event: string, callback: () => void) => void;
   offEvent?: (event: string, callback: () => void) => void;
+  initData?: string; // добавьте это свойство
+  isExpanded?: boolean; // добавьте это свойство
   initDataUnsafe?: {
     user?: {
       id: number;
