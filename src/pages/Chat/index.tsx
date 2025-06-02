@@ -1,24 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import FormFirst from "../Form/FormFirst";
-import type { TelegramWebApp } from "../../types/telegram";
 
-const tg = window.Telegram?.WebApp as TelegramWebApp | undefined;
+
 
 export default function Chat() {
   const [topSelected, setTopSelected] = useState<number>(0);
 
-  useEffect(() => {
-    if (tg) {
-      tg.expand();
-      tg.ready();
-      if (tg.MainButton) {
-        tg.MainButton.setParams({
-          text: "Send Data",
-        });
-        tg.MainButton.show();
-      }
-    }
-  }, []);
 
   return (
     <div className="text-white px-4 bg-black h-auto">

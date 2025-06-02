@@ -14,14 +14,13 @@ function App() {
   useEffect(() => {
     if (tg) {
       tg.expand();
-      tg.requestFullscreen();
+      tg.requestFullscreen?.(); // безопасный вызов
       tg.ready(); 
     }
   }, []);
   useEffect(() => {
     if (tg) {
       tg.ready();
-      tg.setHeaderColor("#474C2B");
     }
   }, []);
 

@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import type { TelegramWebApp } from "../../types/telegram";
 const topics = [
 	{ key: 'self', label: '🧍 Для себя' },
 	{ key: 'love', label: '💖 Для любимого человека' },
@@ -16,6 +16,7 @@ const topics = [
 	{ key: 'boss', label: '🎩 Для начальника' },
 	{ key: 'help', label: '🐶❓ Трекопёс, помоги понять для кого' },
 ];
+const tg = window.Telegram?.WebApp as TelegramWebApp | undefined;
 
 export default function FormFirst() {
 	const navigate = useNavigate();
@@ -27,7 +28,7 @@ export default function FormFirst() {
 		setSelected(topic);
 	};
 
-	const handleCreate = () => {
+	const handleCreate = useCallback(() => {
 		if (selected) {
 			navigate(
 				`/form/second?topic=${selected.key}&label=${encodeURIComponent(
@@ -35,7 +36,27 @@ export default function FormFirst() {
 				)}`
 			);
 		}
-	};
+	}, [navigate, selected]);
+
+	useEffect(() => {
+		if (tg) {
+			tg.expand();
+			tg.ready();
+			if (tg.MainButton) {
+				tg.MainButton.setParams({
+					text: "Создать",
+				});
+				tg.MainButton.show();
+
+				const onClick = () => handleCreate();
+				if (tg.onEvent) tg.onEvent('mainButtonClicked', onClick);
+
+				return () => {
+					if (tg.offEvent) tg.offEvent('mainButtonClicked', onClick);
+				};
+			}
+		}
+	}, [selected, handleCreate]);
 
 	const firstButtons = topics.slice(0, 12);
 	const lastButton = topics[12];
@@ -73,18 +94,6 @@ export default function FormFirst() {
 					</button>
 				)}
 			</div>
-			<button
-				className={`mt-4 w-full h-12 rounded-3xl text-white text-lg font-semibold transition
-                    ${selected
-						? 'bg-green-500 hover:bg-green-600'
-						: 'bg-gray-400 cursor-not-allowed'}
-                `}
-				onClick={handleCreate}
-				disabled={!selected}
-				type="button"
-			>
-				Создать
-			</button>
 		</div>
 	);
 }
