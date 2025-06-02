@@ -1,15 +1,15 @@
 import React, { useRef, useState } from "react";
 const slides = [
 	{
-		title: "Relax",
+		title: "1 ТРЕК",
 		video: '/1.mp4',
 	},
 	{
-		title: "Spring",
+		title: "PRO",
 		video: "/Полная версия трекопса.mp4",
 	},
 	{
-		title: "Chill",
+		title: "ULTRA",
 		video: "https://www.w3schools.com/html/mov_bbb.mp4",
 	},
 ];
