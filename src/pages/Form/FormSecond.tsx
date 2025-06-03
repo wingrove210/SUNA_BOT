@@ -1,6 +1,7 @@
 import { useMemo, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import type { TelegramWebApp } from "../../types/telegram";
+import Input from "../../components/Input";
 const tg = window.Telegram?.WebApp as TelegramWebApp | undefined;
 
 const QUESTIONS: Record<string, { title: string; subtitle: string; questions: string[] }> = {
@@ -220,16 +221,14 @@ export default function FormSecond() {
       <div className="text-gray-400 mb-6 text-2xl">{data.subtitle}</div>
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         {data.questions.map((q, idx) => (
-          <div key={idx}>
-            <label className="block mb-2 text-base font-medium">{q}</label>
-            <textarea
-              rows={2}
-              className="w-full rounded-xl bg-[#232323] text-white px-3 py-2 resize-none text-lg"
-              name={`q${idx}`}
-              placeholder="Ваш ответ..."
-              required
-            />
-          </div>
+          <Input
+            key={idx}
+            label={q}
+            name={`q${idx}`}
+            placeholder="Ваш ответ..."
+            required
+            type="text"
+          />
         ))}
         <button
           type="submit"

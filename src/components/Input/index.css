@@ -1,0 +1,22 @@
+/* From Uiverse.io by Yaseen549 */ 
+.input-form {
+  background-color: #212121;
+  height: 40px;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-size: 15px;
+  color: white;
+}
+.input-form::placeholder{
+    color: gray;
+}
+.input-form:focus {
+  color: rgb(0, 255, 255);
+  background-color: #212121;
+  outline-color: rgb(0, 255, 255);
+  box-shadow: -3px -3px 15px rgb(0, 255, 255);
+  transition: .1s;
+  transition-property: box-shadow;
+}
