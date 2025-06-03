@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 const slides = [
 	{
-		title: "1 ТРЕК",
+		title: "TRACK",
 		video: '/1.mp4',
 	},
 	{

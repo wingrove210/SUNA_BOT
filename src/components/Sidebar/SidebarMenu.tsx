@@ -7,7 +7,7 @@ type SidebarMenuProps = {
 };
 
 const SidebarMenu: React.FC<SidebarMenuProps> = ({ activeTab, setActiveTab }) => (
-  <aside className="fixed left-0 top-0 h-screen w-14 flex flex-col items-center pt-[18vh] z-40">
+  <aside className="fixed left-0 top-0 h-screen w-14 flex flex-col items-center pt-[24vh] z-40">
     <div className="w-5 h-5 mb-3 text-white">
       {playlistSvg()}
     </div>
@@ -17,7 +17,7 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({ activeTab, setActiveTab }) =>
     >
       Выбирите тариф
     </span>
-    <nav className="flex flex-col items-center mt-18">
+    <nav className="flex flex-col items-center mt-20">
       <div className="flex items-center justify-center mb-8">
         {activeTab === "Recent" ? (
           <span className="text-white text-5xl mr-2 w-1 flex justify-center items-center gap-10">.</span>
