@@ -216,57 +216,73 @@ export default function FormSecond() {
   };
 
   return (
-    <div className="max-w-xl mx-auto py-14 px-4 text-white">
-      <h1 className="font-bold mb-2 uppercase text-center text-2xl">{data.title}</h1>
-      <div className="text-gray-400 mb-6 text-lg text-center">{data.subtitle}</div>
-      <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-        {data.questions.map((q, idx) => (
-          <Input
-            key={idx}
-            label={q}
-            name={`q${idx}`}
-            placeholder="Ваш ответ..."
-            required
-            type="text"
-          />
-        ))}
-        <button
-          type="submit"
-          className="mt-4 mb-4 w-full rounded-xl bg-green-500 hover:bg-green-600 text-white py-3 font-semibold text-lg transition"
-        >
-          Отправить
-        </button>
-      </form>
-      {showError && (
-        <div
+    <div className="min-h-screen w-full bg-gradient-to-br from-[#23232b] via-[#18191d] to-black">
+      <div className="max-w-xl mx-auto py-14 px-4 text-white">
+        <h1
+          className="font-bold mb-2 uppercase text-center text-2xl"
           style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backdropFilter: "blur(5px)",
-            backgroundColor: "rgba(0,0,0,0.3)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 1000,
+            textShadow: "0 4px 32px rgba(0,0,0,0.85), 0 1px 0 #fff"
           }}
         >
+          {data.title}
+        </h1>
+        <div
+          className="text-gray-400 mb-6 text-lg text-center"
+          style={{
+            textShadow: "0 4px 32px rgba(0,0,0,0.85)"
+          }}
+        >
+          {data.subtitle}
+        </div>
+        <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+          {data.questions.map((q, idx) => (
+            <Input
+              key={idx}
+              label={q}
+              name={`q${idx}`}
+              placeholder="Ваш ответ..."
+              required
+              type="text"
+            />
+          ))}
+          <button
+            type="submit"
+            className="mt-4 mb-4 w-full rounded-xl bg-green-500 hover:bg-green-600 text-white py-3 font-semibold text-lg transition"
+          >
+            Отправить
+          </button>
+        </form>
+        {showError && (
           <div
             style={{
-              background: "#fff",
-              padding: "20px",
-              borderRadius: "8px",
-              textAlign: "center",
-              color: "#000",
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backdropFilter: "blur(5px)",
+              backgroundColor: "rgba(0,0,0,0.3)",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              zIndex: 1000,
             }}
           >
-            <p>Пожалуйста, заполните все поля или попробуйте позже.</p>
-            <button onClick={() => setShowError(false)}>Закрыть</button>
+            <div
+              style={{
+                background: "#fff",
+                padding: "20px",
+                borderRadius: "8px",
+                textAlign: "center",
+                color: "#000",
+              }}
+            >
+              <p>Пожалуйста, заполните все поля или попробуйте позже.</p>
+              <button onClick={() => setShowError(false)}>Закрыть</button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
