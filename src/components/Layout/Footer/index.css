@@ -1,22 +1,122 @@
-/* .nav svg {
-  width: 17px;
+.menu{
+
+    margin: 0;
+    display: flex;
+    /* Works well with 100% width  */
+    width: 100%;
+    font-size: 1.5em;
+    padding: 0 0.85em;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bgColorMenu);
+    
 }
 
-.nav {
-  position: absolute;
-  bottom: 0;
-  color: #c5c7da;
-  left: 0;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 20px 20px 0 0;
-  height: 52px;
+.menu__item{
+    
+    all: unset;
+    flex-grow: 1;
+    z-index: 100000;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+    align-items: center;
+    will-change: transform;
+    justify-content: center;
+    padding: 0.55em 0 0.85em;
+    transition:
+    color 0.3s,
+    transform 0.4s cubic-bezier(.2,1.7,.6,1);
+    
 }
 
-.nav-first {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 52px;
-} */
+.menu__item::before{
+    
+    content: "";
+    z-index: -1;
+    width: 2.2em;
+    height: 2.2em;
+    border-radius: 50%;
+    position: absolute;
+    transform: scale(0);
+    transition: background-color var(--duration), transform var(--duration);
+    
+}
+
+
+.menu__item.active {
+
+    transform: translateY(-30px) scale(1.2);
+    color: #fff;
+    z-index: 100002;
+
+}
+
+.menu__item.active::before{
+    
+    transform: scale(1);
+    background-color: var(--bgColorItem);
+
+}
+
+.icon{
+    
+    width: 1.6em;
+    height: 1.6em;
+    stroke: #fff;
+    stroke-width: 2.5;
+    fill: none;
+    transition: stroke 0.3s;
+}
+
+.menu__item.active .icon {
+
+    animation: strok 1.5s reverse;
+    stroke: #fff;
+    
+}
+
+@keyframes strok {
+
+    100% {
+
+        stroke-dashoffset: 400;
+
+    }
+
+}
+
+.menu__border{
+
+    left: 0;
+    bottom: 100%;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    clip-path: url(#menu);
+    will-change: transform;
+    background: var(--bgColorItem, #4343f5);
+    border-radius: 50%;
+    z-index: 100001;
+    transition:
+    transform 0.4s cubic-bezier(.2,1.7,.6,1),
+    background 0.3s;
+    box-shadow: 0 2px 20px 0 rgba(0,0,0,0.15);
+    pointer-events: none;
+    
+}
+
+.svg-container {
+
+    width: 0;
+    height: 0;
+}
+
+
+@media screen and (max-width: 50em) {
+    .menu{
+        font-size: .8em;
+    }
+}

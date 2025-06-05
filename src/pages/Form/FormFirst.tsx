@@ -93,9 +93,6 @@ export default function FormFirst() {
 						{lastButton.label}
 					</button>
 				)}
-				<button onClick={handleCreate}>
-					jfhdjjfdnfjdnfj
-				</button>
 			</div>
 		</div>
 	);

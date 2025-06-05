@@ -18,7 +18,7 @@ export default function Input({ label, ...props }: InputProps) {
       <input
         {...props}
         className={
-          "input-form" +
+          "input" +
           (props.className || "")
         }
       />

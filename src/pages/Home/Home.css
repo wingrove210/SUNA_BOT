@@ -783,10 +783,10 @@ body {
   cursor: pointer;
 }
 
-.menu {
+/* .menu {
   width: 16px;
   cursor: pointer;
-}
+} */
 
 .left-bar-wrapper {
   display: flex;

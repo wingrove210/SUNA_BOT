@@ -11,58 +11,22 @@ type MusicItem = {
 
 const musicPlaylist: MusicItem[] = [
   {
-    title: "LSD",
-    artist: "Genius ft. Sia, Diplo, Labrinth",
-    image: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/6.jpg",
-    url: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/6.mp3",
+    title: "ДИМОН — БОСС",
+    artist: "ТРЕКОПЕС",
+    image: "https://storage.yandexcloud.net/suno-bot/IMG_2100.JPG",
+    url: "https://storage.yandexcloud.net/suno-bot/%D0%94%D0%98%D0%9C%D0%9E%D0%9D%20%E2%80%94%20%D0%91%D0%9E%D0%A1%D0%A1.mp3",
   },
   {
-    title: "Extreme Ways",
-    artist: "Moby",
-    image: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/3.jpg",
-    url: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/3.mp3",
+    title: "КОГДА КАТЯ",
+    artist: "ТРЕКОПЕС",
+    image: "https://storage.yandexcloud.net/suno-bot/IMG_2101.JPG",
+    url: "https://storage.yandexcloud.net/suno-bot/%D0%9A%D0%9E%D0%93%D0%94%D0%90%20%D0%9A%D0%90%D0%A2%D0%AF%20%D0%9F%D0%9E%D0%AF%D0%92%D0%98%D0%9B%D0%90%D0%A1%D0%AC.mp3",
   },
   {
-    title: "Everybody Knows",
-    artist: "Leonard Cohen",
-    image: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg",
-    url: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/2.mp3",
-  },
-  {
-    title: "Butterflies",
-    artist: "Sia",
-    image: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/4.jpg",
-    url: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/4.mp3",
-  },
-  {
-    title: "The Final Victory",
-    artist: "Haggard",
-    image: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/5.jpg",
-    url: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/5.mp3",
-  },
-  {
-    title: "The Comeback Kid",
-    artist: "Lindi Ortega",
-    image: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/7.jpg",
-    url: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/7.mp3",
-  },
-  {
-    title: "Overdose",
-    artist: "Grandson",
-    image: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/8.jpg",
-    url: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/8.mp3",
-  },
-  {
-    title: "Mekanın Sahibi",
-    artist: "Norm Ender",
-    image: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/1.jpg",
-    url: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/1.mp3",
-  },
-  {
-    title: "Rag'n'Bone Man",
-    artist: "Human",
-    image: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/9.jpg",
-    url: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/9.mp3",
+    title: "Я — ПРОГРАММИСТ",
+    artist: "ТРЕКОПЕС",
+    image: "https://storage.yandexcloud.net/suno-bot/IMG_2109.PNG",
+    url: "https://storage.yandexcloud.net/suno-bot/%D0%AF_%E2%80%94_%D0%9F%D0%A0%D0%9E%D0%93%D0%A0%D0%90%D0%9C%D0%9C%D0%98%D0%A1%D0%A2%2C_%D0%93%D0%90%D0%9D%D0%A1%D0%A2%D0%90_%D0%9A%D0%A0%D0%90%D0%A1%D0%90%D0%92%D0%A7%D0%98%D0%9A.mp3",
   },
 ];
 
@@ -94,10 +58,14 @@ export default function MusicList({ activeTab }: MusicListProps) {
         <TrackBlock
           key={idx}
           id={idx}
+          idx={idx}
           name={track.title}
           artist={track.artist}
           image={track.image}
           active={activeId === idx}
+          currentSong={activeId ?? -1}
+          currentlyPlaying={activeId === idx && !!audioRef.current?.src}
+          changeSong={(songIdx) => handleTrackClick(songIdx, track.url)}
           onClick={() => handleTrackClick(idx, track.url)}
         />
       ))}

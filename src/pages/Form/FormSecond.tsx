@@ -112,7 +112,7 @@ const QUESTIONS: Record<string, { title: string; subtitle: string; questions: st
     ],
   },
   self: {
-    title: "🙋‍♂️ Про себя / мотивация",
+    title: "Про себя",
     subtitle: "Личная история, вдохновение, путь, внутренний монолог",
     questions: [
       "Как тебя зовут? Есть ли у тебя особое прозвище?",
@@ -217,8 +217,8 @@ export default function FormSecond() {
 
   return (
     <div className="max-w-xl mx-auto py-14 px-4 text-white">
-      <h1 className="text-lg font-bold mb-2">{data.title}</h1>
-      <div className="text-gray-400 mb-6 text-2xl">{data.subtitle}</div>
+      <h1 className="font-bold mb-2 uppercase text-center text-2xl">{data.title}</h1>
+      <div className="text-gray-400 mb-6 text-lg text-center">{data.subtitle}</div>
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         {data.questions.map((q, idx) => (
           <Input
