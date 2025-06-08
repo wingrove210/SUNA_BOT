@@ -21,27 +21,27 @@ function App() {
     setMobile(isMobile());
     if (tg) {
       tg.expand();
-      // tg.requestFullscreen?.(); 
+      tg.requestFullscreen?.(); 
       tg.ready(); 
     }
   }, []);
 
-  // if (!mobile) {
-  //   return (
-  //     <div style={{
-  //       minHeight: "100vh",
-  //       display: "flex",
-  //       alignItems: "center",
-  //       justifyContent: "center",
-  //       background: "#111",
-  //       color: "#fff",
-  //       fontSize: 22,
-  //       textAlign: "center"
-  //     }}>
-  //       Откройте это приложение на мобильном устройстве
-  //     </div>
-  //   );
-  // }
+  if (!mobile) {
+    return (
+      <div style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#111",
+        color: "#fff",
+        fontSize: 22,
+        textAlign: "center"
+      }}>
+        Откройте это приложение на мобильном устройстве
+      </div>
+    );
+  }
 
   return (
     <BrowserRouter>
