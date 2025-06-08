@@ -221,7 +221,7 @@ export default function FormSecond() {
         <h1
           className="font-bold mb-2 uppercase text-center text-2xl"
           style={{
-            textShadow: "0 4px 32px rgba(0,0,0,0.85), 0 1px 0 #fff"
+            textShadow: "rgba(0, 0, 0) 0px 5px 45px, rgb(0, 0, 0) 0px 1px 9px"
           }}
         >
           {data.title}

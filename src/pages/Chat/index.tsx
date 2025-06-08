@@ -30,7 +30,7 @@ export default function Chat() {
   }, [navigate]);
 
   return (
-    <div className="text-white px-4 bg-black h-auto pt-14">
+    <div className="text-white px-4 bg-black min-h-[100vh] pt-14">
       <h1 className="text-2xl py-3 pl-4 font-light">Создать трек</h1>
       <textarea
         name="text"
