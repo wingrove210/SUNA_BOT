@@ -239,9 +239,14 @@ export default function FormSecond() {
     <div className="min-h-screen w-full bg-gradient-to-br from-[#23232b] via-[#18191d] to-black">
       <div className="max-w-xl mx-auto py-14 px-4 text-white">
         <h1
-          className="font-bold mb-2 uppercase text-center text-2xl"
+          className="font-bold mb-2 uppercase text-center text-2xl tracking-[0.25em] text-white"
           style={{
-            textShadow: "rgba(0, 0, 0) 0px 5px 45px, rgb(0, 0, 0) 0px 1px 9px"
+            textShadow: "rgba(0, 0, 0) 0px 5px 45px, rgb(0, 0, 0) 0px 1px 9px",
+            fontFamily: "'Montserrat', 'Arial', sans-serif",
+            fontWeight: 700,
+            letterSpacing: "0.25em",
+            WebkitTextStroke: "2px #fff",
+            color: "transparent",
           }}
         >
           {data.title}
