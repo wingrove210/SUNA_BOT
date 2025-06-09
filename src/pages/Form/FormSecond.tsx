@@ -186,7 +186,7 @@ export default function FormSecond() {
           tg.BackButton.onClick(() => {
             if (tg.MainButton) tg.MainButton.hide();
             tg.BackButton?.hide(); // скрыть кнопку назад
-            navigate(-1);
+            navigate('/form/first');
           });
         }
       }
