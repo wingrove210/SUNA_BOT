@@ -2,8 +2,8 @@ import { useMemo, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import type { TelegramWebApp } from "../../types/telegram";
 import Input from "../../components/Input";
-const tg = window.Telegram?.WebApp as TelegramWebApp | undefined;
 
+const tg = window.Telegram?.WebApp as TelegramWebApp | undefined;
 const QUESTIONS: Record<string, { title: string; subtitle: string; questions: string[] }> = {
   love: {
     title: "💖 Для любимого человека",
@@ -157,24 +157,44 @@ export default function FormSecond() {
   const data = useMemo(() => QUESTIONS[topic] || QUESTIONS["love"], [topic]);
   const navigate = useNavigate();
   const [showError, setShowError] = useState(false);
-
   useEffect(() => {
     if (tg) {
       tg.expand();
       tg.ready();
-      if (tg.BackButton) {
-        tg.BackButton.show();
-        tg.BackButton.onClick(() => {
-          if (tg.MainButton) tg.MainButton.hide();
-          tg.BackButton?.hide();
-          navigate(-1);
+      if (tg.MainButton) {
+        tg.MainButton.setParams({
+          text: "Отправить",
         });
+        tg.MainButton.show();
+
+        const onClick = () => navigate('/chat');
+        if (tg.onEvent) tg.onEvent('mainButtonClicked', onClick);
+
+        return () => {
+          if (tg.offEvent) tg.offEvent('mainButtonClicked', onClick);
+        };
       }
     }
-    return () => {
-      if (tg?.BackButton) tg.BackButton.onClick(() => {});
-    };
   }, [navigate]);
+
+    useEffect(() => {
+      if (tg) {
+        tg.expand();
+        tg.ready();
+        if (tg.BackButton) {
+          tg.BackButton.show();
+          tg.BackButton.onClick(() => {
+            if (tg.MainButton) tg.MainButton.hide();
+            tg.BackButton?.hide(); // скрыть кнопку назад
+            navigate(-1);
+          });
+        }
+      }
+      // Очистка обработчика при размонтировании
+      return () => {
+        if (tg?.BackButton) tg.BackButton.onClick(() => {});
+      };
+    }, [navigate]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -245,12 +265,12 @@ export default function FormSecond() {
               type="text"
             />
           ))}
-          <button
+          {/* <button
             type="submit"
             className="mt-4 mb-4 w-full rounded-xl bg-green-500 hover:bg-green-600 text-white py-3 font-semibold text-lg transition"
           >
             Отправить
-          </button>
+          </button> */}
         </form>
         {showError && (
           <div
