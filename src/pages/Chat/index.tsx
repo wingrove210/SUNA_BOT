@@ -19,7 +19,7 @@ export default function Chat() {
           if (tg.MainButton) tg.MainButton.hide();
           tg.BackButton?.hide(); // скрыть кнопку назад
           // tg.CloseButton не существует, просто скрываем BackButton
-          navigate(-1);
+          navigate('/');
         });
       }
     }
