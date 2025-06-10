@@ -7,18 +7,18 @@ import Chat from './pages/Chat'
 import './index.css'
 import Home from './pages/Home/Home'
 import type { TelegramWebApp } from './types/telegram'
-
+import { useState } from 'react'
 const tg = window.Telegram?.WebApp as TelegramWebApp | undefined;
 
-// function isMobile() {
-//   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-// }
+function isMobile() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 
 function App() {
-  // const [mobile, setMobile] = useState(isMobile());
+  const [mobile, setMobile] = useState(isMobile());
 
   useEffect(() => {
-    // setMobile(isMobile());
+    setMobile(isMobile());
     if (tg) {
       tg.expand();
       tg.requestFullscreen?.(); 
@@ -26,22 +26,22 @@ function App() {
     }
   }, []);
 
-  // if (!mobile) {
-  //   return (
-  //     <div style={{
-  //       minHeight: "100vh",
-  //       display: "flex",
-  //       alignItems: "center",
-  //       justifyContent: "center",
-  //       background: "#111",
-  //       color: "#fff",
-  //       fontSize: 22,
-  //       textAlign: "center"
-  //     }}>
-  //       Откройте это приложение на мобильном устройстве
-  //     </div>
-  //   );
-  // }
+  if (!mobile) {
+    return (
+      <div style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#111",
+        color: "#fff",
+        fontSize: 22,
+        textAlign: "center"
+      }}>
+        Откройте это приложение на мобильном устройстве
+      </div>
+    );
+  }
 
   return (
     <BrowserRouter>
