@@ -47,7 +47,7 @@ body {
 
 .container {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   padding-bottom: var(--tg-content-safe-area-inset-bottom, 0);
 }
