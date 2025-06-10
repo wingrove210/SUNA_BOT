@@ -32,7 +32,7 @@ export default function Chat() {
   return (
     <div className="text-white bg-black min-h-[100vh] pt-14">
       <h1
-        className="font-bold mb-4 uppercase text-center text-2xl tracking-[0.25em] text-white"
+        className="font-bold mb-2 uppercase text-center text-xl tracking-[0.25em] text-white"
         style={{
           textShadow: "rgba(0, 0, 0) 0px 5px 45px, rgb(0, 0, 0) 0px 1px 9px",
           fontFamily: "'Montserrat', 'Arial', sans-serif",
@@ -44,7 +44,15 @@ export default function Chat() {
       >
         Создать трек
       </h1>
-      <div className="w-full h-auto bg-[#262727] pt-4 pb-2 rounded-xl px-4">
+              <div
+          className="text-gray-400 mb-6 text-xs text-center"
+          style={{
+            textShadow: "0 4px 32px rgba(0,0,0,0.85)"
+          }}
+        >
+          Личная имрмроым оырмымышыммшышы
+        </div>
+      <div className="w-full h-auto bg-[#262727] pt-4 pb-2 rounded-t-xl px-4">
         <textarea
           name="text"
           id="text"
