@@ -19,11 +19,12 @@
 } */
 
 .app, .container {
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-  overflow-y: hidden !important;
-  height: 100vh;
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden !important;
   overscroll-behavior: none;
 }
 
