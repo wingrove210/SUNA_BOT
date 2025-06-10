@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./index.css";
-
+import { Link } from "react-router-dom";
 // const bgColorsBody = ["#ffb457", "#ff96bd", "#9999fb", "#ffe797", "#cffff1"];
 
 const menuItemsData = [
@@ -87,9 +87,9 @@ export default function Footer() {
         </svg>
       </div> */}
       <div
-  className="flex items-center justify-between bg-gray-950 bg-opacity-95 backdrop-blur-md rounded-t-4xl px-6 py-6 shadow-lg max-w-md mx-auto transition-all duration-300 hover:shadow-xl hover:bg-opacity-100"
+  className="flex items-center justify-between bg-gray-950 bg-opacity-95 backdrop-blur-md rounded-t-4xl px-6 py-8 shadow-lg max-w-md mx-auto transition-all duration-300 hover:shadow-xl hover:bg-opacity-100"
 >
-  <button
+  <Link to={'/chat'}
     className="text-red-500 hover:text-red-400 mx-2 transition-transform duration-200 ease-in-out hover:scale-110 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-full"
   >
     <svg
@@ -106,7 +106,7 @@ export default function Footer() {
         d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
       ></path>
     </svg>
-  </button>
+  </Link>
   <button
     className="text-gray-400 hover:text-gray-200 mx-2 transition-all duration-200 ease-in-out hover:rotate-12 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full"
   >
@@ -125,7 +125,7 @@ export default function Footer() {
       ></path>
     </svg>
   </button>
-  <button
+  <Link to={'/'}
     className="text-gray-400 hover:text-gray-200 mx-2 transition-all duration-200 ease-in-out hover:bg-gray-800 hover:shadow-md rounded-full p-1 focus:outline-none focus:ring-2 focus:ring-gray-400"
   >
     <svg
@@ -142,8 +142,8 @@ export default function Footer() {
         d="M12 6v6m0 0v6m0-6h6m-6 0H6"
       ></path>
     </svg>
-  </button>
-  <button
+  </Link>
+  <Link to={'/'}
     className="text-gray-400 hover:text-gray-200 mx-2 transition-transform duration-200 ease-in-out hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full"
   >
     <svg
@@ -166,8 +166,8 @@ export default function Footer() {
         d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"
       ></path>
     </svg>
-  </button>
-  <button
+  </Link>
+  <Link to={'/'}
     className="text-gray-400 hover:text-gray-200 mx-2 transition-all duration-200 ease-in-out hover:rotate-180 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full"
   >
     <svg
@@ -184,7 +184,7 @@ export default function Footer() {
         d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
       ></path>
     </svg>
-  </button>
+  </Link>
 </div>
 
     </div>
