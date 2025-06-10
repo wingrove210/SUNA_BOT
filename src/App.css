@@ -144,7 +144,7 @@ body {
 } */
 .app__head {
   justify-content: space-between;
-  padding: 35px 35px 0;
+  padding: 70px 70px 0;
 }
 .app__head.row {
   display: flex;
