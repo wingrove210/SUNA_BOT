@@ -1,6 +1,6 @@
 import React from "react";
 import './Home.css'
-import Footer from "../../components/Layout/Footer";
+// import Footer from "../../components/Layout/Footer";
 import Header from "../../components/Layout/Header";
 // import MusicList from "../../components/MusicList";
 import Slider from "../../components/Slider";
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
               {/* <SidebarMenu activeTab={activeTab} setActiveTab={setActiveTab} /> */}
               {/* <MusicList activeTab={activeTab}/> */}
             </div>
-            <Footer/>
+            {/* <Footer/> */}
           </div>
         </div>
       </div>
