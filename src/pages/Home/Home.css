@@ -4,6 +4,7 @@
   --pink-bubble: #ebc7e5;
   --font-color: #ffffff;
   --tg-content-safe-area-inset-bottom: 0px;
+  --tg-safe-area-inset-bottom: 0px;
 }
 
 * {
