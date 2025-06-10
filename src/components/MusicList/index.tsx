@@ -65,8 +65,8 @@ export default function MusicList({ activeTab }: MusicListProps) {
           active={activeId === idx}
           currentSong={activeId ?? -1}
           currentlyPlaying={activeId === idx && !!audioRef.current?.src}
-          changeSong={(songIdx) => handleTrackClick(songIdx, track.url)}
-          onClick={() => handleTrackClick(idx, track.url)}
+          // Передаём только changeSong, onClick не нужен!
+          changeSong={() => handleTrackClick(idx, track.url)}
         />
       ))}
       <audio ref={audioRef} />
