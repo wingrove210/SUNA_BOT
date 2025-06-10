@@ -52,7 +52,7 @@ const menuItemsData = [
 	},
 	{
 		color: "#ffe797",
-		path: "/",
+		path: "/noinsides",
 		icon: (
 			<svg
 				className="h-6 w-6"
