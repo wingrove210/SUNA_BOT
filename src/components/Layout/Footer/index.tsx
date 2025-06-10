@@ -4,7 +4,7 @@ import "./index.css";
 
 const menuItemsData = [
 	{
-		color: "#ff96bd",
+		color: "#ffb457",
 		path: "/",
 		icon: (
 			<svg
@@ -95,7 +95,7 @@ export default function Footer() {
 
 	return (
 		<div className="w-full fixed bottom-4 z-50">
-			<div className="flex items-center justify-between bg-orange-400 bg-opacity-95 backdrop-blur-md rounded-4xl px-6 py-8 shadow-lg max-w-md mx-auto transition-all duration-300">
+			<div className="flex items-center justify-between bg-gray-950 bg-opacity-95 backdrop-blur-md rounded-4xl px-6 py-8 shadow-lg max-w-md mx-auto transition-all duration-300">
 				{menuItemsData.map((item, idx) => (
 					<Link
 						to={item.path}
