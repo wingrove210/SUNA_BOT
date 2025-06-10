@@ -3,6 +3,7 @@
   --small-b-bubble: #bae5f2;
   --pink-bubble: #ebc7e5;
   --font-color: #ffffff;
+  --tg-content-safe-area-inset-bottom: 0px !important;
 }
 
 * {
@@ -10,6 +11,12 @@
 }
 *:focus {
   outline: none;
+}
+
+html, body, .app, .container {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  height: 100%;
 }
 
 /* html,
