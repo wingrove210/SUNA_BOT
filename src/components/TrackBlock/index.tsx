@@ -30,7 +30,9 @@ const TrackBlock: React.FC<TrackType> = ({
       ${active
           ? "bg-[#1a1b1f] border-b border-b-[#18191D] border-t border-t-[#353535] border-r border-r-[#353535] shadow-[inset_0_-25px_25px_#222226]"
           : ""}`}
-        onClick={() => changeSong(idx, true)}
+        onClick={() => {
+          if (currentSong !== idx) changeSong(idx, true);
+        }}
       >
         <div className="h-10 w-10">
           <img

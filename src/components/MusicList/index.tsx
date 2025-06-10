@@ -38,11 +38,22 @@ export default function MusicList({ activeTab }: MusicListProps) {
   const [activeId, setActiveId] = useState<number | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const handleTrackClick = (idx: number, url: string) => {
+  const handleTrackClick = (idx: number, play: boolean) => {
+    if (activeId === idx) {
+      // Если уже активен и играет — ставим на паузу
+      if (audioRef.current) {
+        if (!audioRef.current.paused) {
+          audioRef.current.pause();
+        } else if (play) {
+          audioRef.current.play();
+        }
+      }
+      return;
+    }
     setActiveId(idx);
     if (audioRef.current) {
-      audioRef.current.src = url;
-      audioRef.current.play();
+      audioRef.current.src = musicPlaylist[idx].url;
+      if (play) audioRef.current.play();
     }
   };
 
@@ -66,7 +77,7 @@ export default function MusicList({ activeTab }: MusicListProps) {
           currentSong={activeId ?? -1}
           currentlyPlaying={activeId === idx && !!audioRef.current?.src}
           // Передаём только changeSong, onClick не нужен!
-          changeSong={() => handleTrackClick(idx, track.url)}
+          changeSong={() => handleTrackClick(idx, true)}
         />
       ))}
       <audio ref={audioRef} />
