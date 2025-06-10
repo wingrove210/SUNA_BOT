@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './Home.css'
 import Footer from "../../components/Layout/Footer";
 import Header from "../../components/Layout/Header";
@@ -10,6 +10,16 @@ import SidebarMenu from "../../components/Sidebar/SidebarMenu";
 const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"Recent" | "Like">("Recent");
   // const activeTab = "Recent"
+
+  useEffect(() => {
+    const preventScroll = (e: TouchEvent) => {
+      e.preventDefault();
+    };
+    document.body.addEventListener("touchmove", preventScroll, { passive: false });
+    return () => {
+      document.body.removeEventListener("touchmove", preventScroll);
+    };
+  }, []);
 
   return (
     <>

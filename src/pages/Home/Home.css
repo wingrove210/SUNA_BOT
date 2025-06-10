@@ -18,7 +18,7 @@ html, body {
   height: 100%;
   width: 100%;
   position: fixed;
-  overscroll-behavior: none;
+  /* overscroll-behavior: none; */
 }
 
 .app, .container {
