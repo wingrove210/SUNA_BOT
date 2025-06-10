@@ -4,7 +4,7 @@ import Footer from "../../components/Layout/Footer";
 import Header from "../../components/Layout/Header";
 import MusicList from "../../components/MusicList";
 import Slider from "../../components/Slider";
-import SidebarMenu from "../../components/Sidebar/SidebarMenu";
+// import SidebarMenu from "../../components/Sidebar/SidebarMenu";
 
 const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"Recent" | "Like">("Recent");
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
             <Header/>
             <Slider/>
             <div className="flex">
-              <SidebarMenu activeTab={activeTab} setActiveTab={setActiveTab} />
+              {/* <SidebarMenu activeTab={activeTab} setActiveTab={setActiveTab} /> */}
               <MusicList activeTab={activeTab} />
             </div>
             <Footer/>
