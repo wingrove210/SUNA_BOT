@@ -53,7 +53,7 @@ export default function MusicList({ activeTab }: MusicListProps) {
       : musicPlaylist.slice(5, 10);
 
   return (
-    <div className="w-full h-[500px] pb-52 overflow-y-scroll scrollbar-hide">
+    <div className="w-full pb-52 overflow-y-scroll scrollbar-hide">
       {tracksToShow.map((track, idx) => (
         <TrackBlock
           key={idx}
