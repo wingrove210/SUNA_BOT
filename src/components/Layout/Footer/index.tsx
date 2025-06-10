@@ -87,7 +87,7 @@ export default function Footer() {
         </svg>
       </div> */}
       <div
-  className="flex items-center justify-between bg-gray-950 bg-opacity-95 backdrop-blur-md rounded-full px-6 py-3 shadow-lg max-w-md mx-auto transition-all duration-300 hover:shadow-xl hover:bg-opacity-100"
+  className="flex items-center justify-between bg-gray-950 bg-opacity-95 backdrop-blur-md rounded-t-4xl px-6 py-6 shadow-lg max-w-md mx-auto transition-all duration-300 hover:shadow-xl hover:bg-opacity-100"
 >
   <button
     className="text-red-500 hover:text-red-400 mx-2 transition-transform duration-200 ease-in-out hover:scale-110 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-full"
