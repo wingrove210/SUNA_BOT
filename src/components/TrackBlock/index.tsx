@@ -26,10 +26,15 @@ const TrackBlock: React.FC<TrackType> = ({
   return (
     <div className="pl-15 pr-2 mt-2">
       <div
-        className={`w-full flex items-center gap-4 px-3 py-4 rounded-2xl cursor-pointer transition
-      ${active
+        className={`w-full flex items-center gap-4 px-3 py-4 rounded-2xl cursor-pointer transition-colors duration-200
+    ${active
           ? "bg-[#1a1b1f] border-b border-b-[#18191D] border-t border-t-[#353535] border-r border-r-[#353535] shadow-[inset_0_-25px_25px_#222226]"
           : ""}`}
+        style={{
+          WebkitTapHighlightColor: "transparent",
+          touchAction: "manipulation",
+          // transition: "background 0.2s, box-shadow 0.2s", // не используйте transition: all
+        }}
         onClick={() => {
           if (currentSong !== idx) changeSong(idx, true);
         }}
