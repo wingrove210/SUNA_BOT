@@ -1,14 +1,14 @@
-import { useState } from "react";
+// import { useState } from "react";
 import './index.css'
 export default function Header() {
-  const [isPlaylistActive, setIsPlaylistActive] = useState<boolean>(false);
+  // const [isPlaylistActive, setIsPlaylistActive] = useState<boolean>(false);
   
   return (
-    <div className="flex w-full justify-between px-10 py-4 mt-17 items-center">
-      <div className="">
+    <div className="flex w-full justify-between px-10 py-4 mt-13 items-center">
+      <div className="w-full flex justify-center">
         <img src="/logo.png" alt="" className="w-22 h-22 ml-5" />
       </div>
-      <div className="">
+      {/* <div className="">
         <button
           className={`button btn--small playlist${isPlaylistActive ? " isactive" : ""}`}
           onClick={() => setIsPlaylistActive(!isPlaylistActive)}
@@ -20,7 +20,7 @@ export default function Header() {
             <i className="fas fa-list" />
           )}
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./index.css";
 
-const bgColorsBody = ["#ffb457", "#ff96bd", "#9999fb", "#ffe797", "#cffff1"];
+// const bgColorsBody = ["#ffb457", "#ff96bd", "#9999fb", "#ffe797", "#cffff1"];
 
 const menuItemsData = [
   { color: "#ffb457", path: "/", icon: <svg className="icon" viewBox="0 0 24 24"><path d="M3.8,6.6h16.4"/><path d="M20.2,12.1H3.8"/><path d="M3.8,17.5h16.4"/></svg> },
@@ -20,9 +20,9 @@ export default function Footer() {
   const location = useLocation();
 
   // Меняем фон body
-  useEffect(() => {
-    document.body.style.backgroundColor = bgColorsBody[activeIdx];
-  }, [activeIdx]);
+  // useEffect(() => {
+  //   document.body.style.backgroundColor = bgColorsBody[activeIdx];
+  // }, [activeIdx]);
 
   // Смещаем border
   useEffect(() => {
