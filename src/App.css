@@ -16,6 +16,8 @@
   --gr: linear-gradient(120deg, #47494B 0%, #18191D 100%);
   --gr2: linear-gradient(120deg, #E8550C 0%, #ff8d1a 100%);
   --gr3: linear-gradient(45deg, #D11302 0%, #f9ca24 100%);
+    --tg-content-safe-area-inset-bottom: 0px;
+  --tg-safe-area-inset-bottom: 0px;
 }
 
 *, *::before, *::after {
@@ -26,6 +28,9 @@
 body {
   font-size: 28px;
   background-color: #26282B;
+  height: 100vh;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* === BUTTONS === */

@@ -3,8 +3,6 @@
   --small-b-bubble: #bae5f2;
   --pink-bubble: #ebc7e5;
   --font-color: #ffffff;
-  --tg-content-safe-area-inset-bottom: 0px;
-  --tg-safe-area-inset-bottom: 0px;
 }
 
 * {
@@ -41,8 +39,9 @@ body {
 
 .container {
   width: 100vw;
-  /* height: 100vh; */
+  height: 100vh;
   position: fixed;
+  padding-bottom: var(--tg-content-safe-area-inset-bottom, 0);
 }
 
 .bubble {
