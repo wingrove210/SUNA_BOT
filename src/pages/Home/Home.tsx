@@ -2,13 +2,13 @@ import React from "react";
 import './Home.css'
 import Footer from "../../components/Layout/Footer";
 import Header from "../../components/Layout/Header";
-import MusicList from "../../components/MusicList";
+// import MusicList from "../../components/MusicList";
 import Slider from "../../components/Slider";
 // import SidebarMenu from "../../components/Sidebar/SidebarMenu";
 
 const Home: React.FC = () => {
   // const [activeTab, setActiveTab] = useState<"Recent" | "Like">("Recent");
-  const activeTab = "Recent"
+  // const activeTab = "Recent"
 
   return (
     <>
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
             <Slider/>
             <div className="flex">
               {/* <SidebarMenu activeTab={activeTab} setActiveTab={setActiveTab} /> */}
-              <MusicList activeTab={activeTab}/>
+              {/* <MusicList activeTab={activeTab}/> */}
             </div>
             <Footer/>
           </div>
