@@ -94,8 +94,8 @@ export default function Footer() {
 	}, [location.pathname]);
 
 	return (
-		<div className="w-full fixed bottom-0 z-50">
-			<div className="flex items-center justify-between bg-gray-950 bg-opacity-95 backdrop-blur-md rounded-t-4xl px-6 py-8 shadow-lg max-w-md mx-auto transition-all duration-300">
+		<div className="w-full fixed bottom-4 z-50">
+			<div className="flex items-center justify-between bg-gray-950 bg-opacity-95 backdrop-blur-md rounded-4xl px-6 py-8 shadow-lg max-w-md mx-auto transition-all duration-300">
 				{menuItemsData.map((item, idx) => (
 					<Link
 						to={item.path}
