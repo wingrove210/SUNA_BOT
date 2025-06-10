@@ -21,6 +21,7 @@
 .app, .container {
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
+  overflow-y: hidden !important;
   height: 100%;
   position: fixed;
   overscroll-behavior: none;
