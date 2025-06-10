@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
     
     // Типизация для музыкального трека
@@ -191,9 +192,11 @@ import "../App.css";
       return (
         <div id="app" className="app">
           <div className="app__head row">
-            <button className="button btn--small back" onClick={prevSong}>
+            <Link to={'/'}>
+             <button className="button btn--small back" onClick={prevSong}>
               <i className="fa fa-arrow-left" />
             </button>
+            </Link>
             <button
               className={`button btn--small playlist${isPlaylistActive ? " isactive" : ""}`}
               onClick={() => setIsPlaylistActive(!isPlaylistActive)}

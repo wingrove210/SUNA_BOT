@@ -38,16 +38,20 @@ const menuItemsData = [
 		color: "#9999fb",
 		path: "/",
 		icon: (
-			<svg
-				className="h-6 w-6"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-			>
-				<path d="M3.4,11.9l8.8,4.4l8.4-4.4" />
-				<path d="M3.4,16.2l8.8,4.5l8.4-4.5" />
-				<path d="M3.7,7.8l8.6-4.5l8,4.5l-8,4.3L3.7,7.8z" />
-			</svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-10 w-10"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+      ></path>
+    </svg>
 		),
 	},
 	{
@@ -106,11 +110,13 @@ export default function Footer() {
             `}
 						style={{
 							color: activeIdx === idx ? item.color : "#fff",
-							border:
-								activeIdx === idx
-									? `2px solid ${item.color}`
-									: "2px solid transparent",
-							transition: "color 0.2s, border 0.2s",
+							boxShadow: activeIdx === idx
+								? `inset 0 0 12px 2px ${item.color}`
+								: "none",
+							border: activeIdx === idx
+								? `2px solid ${item.color}`
+								: "2px solid transparent",
+							transition: "color 0.2s, border 0.2s, box-shadow 0.2s",
 						}}
 					>
 						{item.icon}
